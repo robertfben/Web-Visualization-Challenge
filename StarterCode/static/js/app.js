@@ -1,21 +1,4 @@
 
-// function buildCharts(sample) {
-
-//     // Use d3.json to load the samples.json file 
-//     d3.json("samples.json").then((data) => {
-//       // Create a variable that holds the samples array. 
-//       var samples = data.samples;
-  
-//       //  Create a variable that holds the first sample in the array.
-//       var result = resultArray[0];
-  
-//       // Create variables that hold the otu_ids, otu_labels, and sample_values.
-//       var otu_ids = result.otu_ids;
-//       var otu_labels = result.otu_labels;
-//       var sample_values = result.sample_values;
-//     });
-//   }
-
 // function for dropdown
 // d3.json('./samples.json').then((data) => {
 
@@ -114,7 +97,7 @@ function buildCharts(sample){
         // create variable that holds the samples array
         var samples = data.samples;
 
-        // variable to hold first sample in array
+        // variable to filter for selected OTU ID
         var resultArray = samples.filter(obj => obj.id == sample);
         // 
         var result = resultArray[0];
@@ -128,16 +111,6 @@ function buildCharts(sample){
         
         // filter only to top 10 otu_ids and add OTU to string label
         var yticks = otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
-    //     // Create the trace for the bar chart. 
-    //     var barData = [
-    //       {
-    //         y: yticks,
-    //         x: sample_values.slice(0, 10).reverse(),
-    //         text: otu_labels.slice(0, 10).reverse(),
-    //         type: "bar",
-    //         orientation: "h",
-    //       }
-    //     ];
 
         // bar chart trace
         var barChart = {
@@ -163,8 +136,11 @@ function buildCharts(sample){
         // create variable that holds the samples array
         var samples = data.samples;
 
+        // variable to hold filter for selected OTU ID
+        var resultArray = samples.filter(obj => obj.id == sample);
+
         // variable to hold first sample in array
-        var result = samples[0];
+        var result = resultArray[0];
         //console.log(result)
 
         // variables holding the necessary data arrays
@@ -205,85 +181,3 @@ function buildCharts(sample){
 // Initialize the dashboard
  init();
 
-// var sample_values = []
-// var otu_ids = []
-// var otu_labels = []
-// var sample_ids = []
-
-// // function to grab the data and append it to its respective list for charts
-// function init(data){
-//     console.log(data);
-    
-
-//     for (let i = 0; i < data.samples.length; i++) {
-//         //console.log(data.samples[i].id)
-//         sample_ids.push(data.samples[i].id)
-//         //console.log(sample_ids)
-//         otu_ids = data.samples[i].otu_ids
-//         //console.log(otu_ids[0])
-//         otu_labels = data.samples[i].otu_labels
-//         sample_values = data.samples[i].sample_values
-//         //console.log(sample_values)
-//       }
-// }
-
-// // how do i create google chart for top 10 otu ids? --< google
-// // try to populate dropdown list first before charts
-
-// // On change to the DOM, call getData()
-// d3.selectAll("#selDataset").on("change", Dropdown);
-
-// // Function called when dropdown menu item is selected
-// function Dropdown() {
-//     let dropdownMenu = d3.select("#selDataset");
-//     // Assign the value of the dropdown menu option to a letiable
-//     let dataset = dropdownMenu.property("value");
-//     // Initialize an empty array for the country's data
-//     //data = []
-    
-//     sample_ids.forEach(sample => {
-//         dropdownMenu
-//             .append('option')
-//             .text(sample)
-//             .property('value', sample);
-//     });
-// };
-
-// ////////////////////////////////////////////////////////
-// // trace for bar chart
-// var barChart = {
-//     type: 'bar',
-//     x: sample_values,
-//     y: `OTU ${otu_ids}`,
-//     hovertext: otu_labels,
-//     orientation: 'h'
-// };
-
-// // Data trace array
-// let barTraceData = [barChart];
-
-// // Render the plot to the div tag with id "bar"
-// Plotly.newPlot("bar", barTraceData);
-
-// ////////////////////////////////////////////////////////
-
-// // trace for bubble chart
-// var bubbleChart = {
-//     x: otu_ids,
-//     y: sample_values,
-//     text: otu_labels,
-//     mode: 'markers',
-//     marker: {
-//         size: sample_values,
-//         color: otu_ids
-//     }
-// };
-
-// // Data trace array
-// let bubbleTraceData = [bubbleChart];
-
-// // Render the plot to the div tag with id "bubble"
-// Plotly.newPlot("bubble", bubbleTraceData);
-
-
-//d3.json('./samples.json').then(data => init(data))
