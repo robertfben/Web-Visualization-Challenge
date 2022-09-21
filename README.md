@@ -39,3 +39,5 @@ Completed the following steps:
 
  5) Display each key-value pair from the metadata JSON object somewhere on the page.
  
+### References
+Hulcr, J. et al. (2012) A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable. Retrieved from: http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/
