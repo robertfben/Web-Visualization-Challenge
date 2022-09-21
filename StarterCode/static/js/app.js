@@ -1,36 +1,4 @@
 
-// function for dropdown
-// d3.json('./samples.json').then((data) => {
-
-//     // create variable that holds the samples array
-//     var samples = data.samples;
-
-//     // variable to hold first sample in array
-//     var result = samples;
-//     //console.log(result)
-
-//     // variables holding the necessary data arrays
-//     var otu_ids = result.otu_ids;
-//     var otu_ids = otu_ids;
-//     //console.log(otu_ids)
-//     var otu_labels = result.otu_labels;
-//     var sample_values = result.sample_values;
-
-//     // use d3 to select dropdown menu
-//     var dropdownMenu = d3.select('#selDataset');
-//     // Assign value of dropdown menu option to variable
-//     var dataset = dropdownMenu.property('value');
-
-//     otu_ids.forEach(sample => {
-//         dropdownMenu
-//             .append('option')
-//             .text(sample)
-//             .property('value', sample);
-//     });
-// });
-
-// Call init() when a change takes place to the DOM
-//d3.selectAll("#selDataset").on("change", init);
 
 function init() {
        // Grab a reference to the dropdown select element
